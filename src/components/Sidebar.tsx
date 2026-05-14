@@ -1,12 +1,13 @@
 import React from 'react';
+import Link from 'next/link';
 import { ChevronLeft, LayoutDashboard, FileText, BarChart2, Users, Settings, Zap, ArrowLeftRight, Mail, MessageSquare } from 'lucide-react';
 
 export default function Sidebar() {
   return (
-    <div className="w-64 border-r border-gray-200 h-screen bg-white flex flex-col p-4 fixed left-0 top-0">
+    <div className="w-64 border-r border-gray-200 h-screen bg-white flex flex-col p-4 fixed left-0 top-0 z-50">
       <div className="flex items-center gap-2 mb-8">
-        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">A</div>
-        <span className="font-semibold text-lg text-gray-800">Axoly</span>
+        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">N</div>
+        <span className="font-semibold text-lg text-gray-800">Nexa</span>
       </div>
 
       <div className="flex flex-col gap-6 flex-1 overflow-y-auto">
@@ -33,20 +34,26 @@ export default function Sidebar() {
 
         {/* Menu Sections */}
         <nav className="flex flex-col gap-1">
-          <NavItem icon={<LayoutDashboard className="w-4 h-4" />} label="Axoly Academy" badge="EM BREVE" />
-          <NavItem icon={<FileText className="w-4 h-4" />} label="Axoly User Guide" badge="NEW" />
-          <NavItem icon={<BarChart2 className="w-4 h-4" />} label="Axoly Benchmark" badge="NEW" />
+          <NavItem icon={<LayoutDashboard className="w-4 h-4" />} label="Nexa Academy" badge="EM BREVE" />
+          <NavItem icon={<FileText className="w-4 h-4" />} label="Nexa User Guide" badge="NEW" />
+          <NavItem icon={<BarChart2 className="w-4 h-4" />} label="Nexa Benchmark" badge="NEW" />
         </nav>
 
         <div className="mt-4">
-          <NavSection title="AXOLY METRICS" badge="NEW" />
+          <NavSection title="NEXA METRICS" badge="NEW" />
           <NavSection title="GESTÃO" />
           <NavSection title="CONTEÚDO" />
           <NavSection title="PERFORMANCE" />
           <NavSection title="CRM" isOpen>
-            <NavItem icon={<Zap className="w-4 h-4 text-blue-500" />} label="Automações" active />
-            <NavItem icon={<ArrowLeftRight className="w-4 h-4" />} label="Ações Pontuais CRM" />
-            <NavItem icon={<Mail className="w-4 h-4" />} label="E-Mail Marketing" />
+            <Link href="/">
+              <NavItem icon={<Zap className="w-4 h-4" />} label="Automações" />
+            </Link>
+            <Link href="/acoes-pontuais">
+              <NavItem icon={<ArrowLeftRight className="w-4 h-4 text-blue-500" />} label="Ações Pontuais CRM" active />
+            </Link>
+            <Link href="/email-marketing">
+              <NavItem icon={<Mail className="w-4 h-4" />} label="E-Mail Marketing" />
+            </Link>
           </NavSection>
           <NavSection title="FEEDBACK" />
         </div>
